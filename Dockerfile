@@ -2,10 +2,12 @@ FROM bkimminich/juice-shop:latest
 
 USER root
 
+WORKDIR /juice-shop
+
 RUN npm install newrelic --no-save
 
-COPY newrelic.js /app/newrelic.js
+COPY newrelic.js /juice-shop/newrelic.js
 
 ENV NODE_OPTIONS="-r newrelic"
 
-USER node
+USER 65532

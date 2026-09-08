@@ -10,10 +10,8 @@ RUN npm install newrelic --no-save
 
 COPY newrelic.js /juice-shop/newrelic.js
 
-ENV NODE_OPTIONS="-r newrelic"
-
 USER 65532
 
 EXPOSE 3000
 
-CMD ["node", "/juice-shop/build/app.js"]
+CMD ["node", "-r", "newrelic", "/juice-shop/build/app.js"]
